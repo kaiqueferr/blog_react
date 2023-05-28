@@ -11,22 +11,16 @@ import { toast } from "react-toastify";
 
 function Login() {
   let navigate = useNavigate();
-  //const [token, setToken] = useLocalStorage('token');  //GURDA NOSSO TOKEN
 
   const dispatch = useDispatch();
   const [token, setToken] = useState("");
 
-
-  //FALANDO QUE VAMOS GURDAR AS INFORMAÇOES DE RETORNO AI UTILIZAMOS A FORMINHA
   const [userLogin, setUserLogin] = useState<UserLogin>({
     id: 0,
     usuario: '',
     senha: '',
     token: ''
   });
-
-
-  
 
   function updateModel(e: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
@@ -43,10 +37,8 @@ function Login() {
     }
   }, [token, navigate])
 
-
-
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault(); // previne o comportamento padrão do botão para impedir que a página seja atualizada
+    e.preventDefault(); 
     try {
       await login(`/usuarios/logar`, userLogin, setToken);
       toast.success('Usuário logado com sucesso!', {
