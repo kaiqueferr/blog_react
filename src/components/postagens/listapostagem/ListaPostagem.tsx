@@ -6,11 +6,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { busca } from '../../../services/Service';
 
 import { toast } from 'react-toastify';
-import { addToken } from '../../../store/token/Actions';
+import { AddToken } from '../../../store/token/Actions';
 import { UserState } from '../../../store/token/Reducer';
 import './ListaPostagem.css';
 
-function Listapostagem() {
+function Listapost() {
   
   let navigate = useNavigate();
 
@@ -45,7 +45,7 @@ function Listapostagem() {
       });
     } catch (error: any) {
       if (error.response?.status === 403) {
-        dispatch(addToken(''))
+        dispatch(AddToken(''))
       }
     }
   }

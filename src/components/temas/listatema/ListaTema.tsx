@@ -8,7 +8,7 @@ import { busca } from '../../../services/Service';
 import { UserState } from '../../../store/token/Reducer';
 import './ListaTema.css';
 import { toast } from 'react-toastify';
-import { addToken } from '../../../store/token/Actions';
+import { AddToken } from '../../../store/token/Actions';
 
 function ListaTema() {
 
@@ -49,7 +49,7 @@ function ListaTema() {
       })
     } catch (error: any) {
       if (error.response?.status === 403) {
-        dispatch(addToken(''))
+        dispatch(AddToken(''))
       }
     }
   }
